@@ -1,6 +1,6 @@
 from __future__ import annotations
 import random
-from enum import StrEnum
+
 from typing import NamedTuple, Dict, List, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -18,24 +18,6 @@ class SMGItemData(NamedTuple):
     classification: ItemClassification = ItemClassification.progression
 
 
-class ItemNames(StrEnum):
-    POWER_STAR      = "Power_Star"
-    GREEN_STAR      = "Green_Star"
-
-    BJrRR_ACCESS    = "Bowser Jr's Robot Reactor: Access"
-    BSR_ACCESS      = "Bowser's Star Reactor: Access"
-    BJrAA_ACCESS    = "Bowser Jr's Airship Armada: Access"
-    BDMP_ACCESS     = "Bowser's Dark Matter Plant: Acess"
-    BJrLR_ACCESS    = "Bowser Jr's Lava Reactor: Access"
-
-    RESCUE_ACCESS   = "Luigi Rescue Access"
-    COMET_ACCESS    = "Comet Mission Access"
-    PURPLE_ACCESS   = "Purple Comet Access"
-    
-    STARBITS        = "Star Bits"
-    ONEUP           = "1UP Mushroom"
-
-
 NEXT_OFFSET_NUM = 0
 def create_location_data(classification: ItemClassification = ItemClassification.progression):
     global NEXT_OFFSET_NUM
@@ -44,21 +26,21 @@ def create_location_data(classification: ItemClassification = ItemClassification
     return item
 
 item_data_table: Dict[str, SMGItemData] = {
-    ItemNames.POWER_STAR:       create_location_data(ItemClassification.progression_deprioritized_skip_balancing),
-    ItemNames.GREEN_STAR:       create_location_data(ItemClassification.progression_deprioritized_skip_balancing),
+    "Power_Star":                           create_location_data(ItemClassification.progression_deprioritized_skip_balancing),
+    "Green_Star":                           create_location_data(ItemClassification.progression_deprioritized_skip_balancing),
 
-    ItemNames.BJrRR_ACCESS:     create_location_data(),
-    ItemNames.BSR_ACCESS:       create_location_data(),
-    ItemNames.BJrAA_ACCESS:     create_location_data(),
-    ItemNames.BDMP_ACCESS:      create_location_data(),
-    ItemNames.BJrLR_ACCESS:     create_location_data(),
+    "Bowser Jr's Robot Reactor: Access":    create_location_data(),
+    "Bowser's Star Reactor: Access":        create_location_data(),
+    "Bowser Jr's Airship Armada: Access":   create_location_data(),
+    "Bowser's Dark Matter Plant: Access":   create_location_data(),
+    "Bowser Jr's Lava Reactor: Access":     create_location_data(),
 
-    ItemNames.RESCUE_ACCESS:    create_location_data(),
-    ItemNames.COMET_ACCESS:     create_location_data(),
-    ItemNames.PURPLE_ACCESS:    create_location_data(),
+    "Luigi Rescue Access":                  create_location_data(),
+    "Comet Mission Access":                 create_location_data(),
+    "Purple Comet Access":                  create_location_data(),
 
-    ItemNames.STARBITS:         create_location_data(ItemClassification.filler),
-    ItemNames.ONEUP:            create_location_data(ItemClassification.filler),
+    "Star Bits":                            create_location_data(ItemClassification.filler),
+    "1UP Mushroom":                         create_location_data(ItemClassification.filler),
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}
@@ -72,27 +54,27 @@ def create_single_item(world: SMGWorld, name: str) -> SMGItem:
 
 def create_all_items(world: SMGWorld) -> None:
     itempool: List[Item] = [
-        world.create_item(ItemNames.BJrRR_ACCESS),
-        world.create_item(ItemNames.BSR_ACCESS),
-        world.create_item(ItemNames.BJrAA_ACCESS),
-        world.create_item(ItemNames.BDMP_ACCESS),
-        world.create_item(ItemNames.BJrLR_ACCESS),
+        world.create_item("Bowser Jr's Robot Reactor: Access"),
+        world.create_item("Bowser's Star Reactor: Access"),
+        world.create_item("Bowser Jr's Airship Armada: Access"),
+        world.create_item("Bowser's Dark Matter Plant: Access"),
+        world.create_item("Bowser Jr's Lava Reactor: Access"),
     ]
 
-    itempool += [world.create_item(ItemNames.POWER_STAR) for _ in range(119)]
-    itempool += [world.create_item(ItemNames.GREEN_STAR) for _ in range(3)]
+    itempool += [world.create_item("Power_Star") for _ in range(119)]
+    itempool += [world.create_item("Green_Star") for _ in range(3)]
 
     if world.options.initial_gateway_rando:
-        itempool.append(world.create_item(ItemNames.POWER_STAR))
+        itempool.append(world.create_item("Power_Star"))
 
     if world.options.luigi_rando:
-        itempool.append(world.create_item(ItemNames.RESCUE_ACCESS))
+        itempool.append(world.create_item("Luigi Rescue Access"))
 
     if world.options.comet_rando:
-        itempool.append(world.create_item(ItemNames.COMET_ACCESS))
+        itempool.append(world.create_item("Comet Mission Access"))
         
     if world.options.purple_comet_rando:
-        itempool.append(world.create_item(ItemNames.PURPLE_ACCESS))
+        itempool.append(world.create_item("Purple Comet Access"))
 
 
     unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))
@@ -108,4 +90,4 @@ def create_all_items(world: SMGWorld) -> None:
 
 
 def get_filler_item_name():
-    return random.choice([ItemNames.STARBITS, ItemNames.ONEUP])
+    return random.choice(["Star Bits", "1UP Mushroom"])

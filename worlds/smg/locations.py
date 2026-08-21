@@ -4,8 +4,7 @@ from typing import Any, Dict, NamedTuple, List, TYPE_CHECKING
 if TYPE_CHECKING:
     from . import SMGWorld
 
-from .items import ItemNames, SMGItem
-from .regions import RegionNames
+from .items import SMGItem
 
 from BaseClasses import Location
 
@@ -17,11 +16,11 @@ class SMGLocation(Location):
 
 class SMGLocationData(NamedTuple):
     code: int | None = None
-    vanilla_item_data: str | None = ItemNames.POWER_STAR
+    vanilla_item_data: str | None = "Power_Star"
 
 
 NEXT_OFFSET_NUM = 0
-def create_location_data(vanilla_item_data: str | None = ItemNames.POWER_STAR):
+def create_location_data(vanilla_item_data: str | None = "Power_Star"):
     global NEXT_OFFSET_NUM
     loc = SMGLocationData(smg_base_id + NEXT_OFFSET_NUM, vanilla_item_data)
     NEXT_OFFSET_NUM += 1
@@ -44,7 +43,7 @@ loc_terrace_data = {
     "Loopdeeloop Galaxy: Surfing 101":                  create_location_data(),
     "Flipswitch Galaxy: Painting the Planet Yellow":    create_location_data(),
     "Sweet Sweet Galaxy: Rocky Road":                   create_location_data(),
-    "Bowser Jr's Robot Reactor: Access":                create_location_data(ItemNames.BJrRR_ACCESS),
+    "Bowser Jr's Robot Reactor: Access":                create_location_data("Bowser Jr's Robot Reactor: Access"),
     "Bowser Jr's Robot Reactor: Megaleg's Moon":        create_location_data(),
 }
 
@@ -62,11 +61,11 @@ loc_fountain_data = {
     "Battlerock Galaxy: Purple Coins on the Battlerock":    create_location_data(),
     "Battlerock Galaxy: Battlerock's Garbage Dump":         create_location_data(),
     "Battlerock Galaxy: Luigi under the Saucer":            create_location_data(),
-    "Battlerock Galaxy: Green Star":                        create_location_data(ItemNames.GREEN_STAR),
+    "Battlerock Galaxy: Green Star":                        create_location_data("Green_Star"),
     "Rolling Green Galaxy: Rolling in the Clouds":          create_location_data(),
     "Hurry-Scurry Galaxy: Shrinking Satellite":             create_location_data(),
     "Sling Pod Galaxy: A Very Sticky Situation":            create_location_data(),
-    "Bowser's Star Reactor: Access":                        create_location_data(ItemNames.BSR_ACCESS),
+    "Bowser's Star Reactor: Access":                        create_location_data("Bowser's Star Reactor: Access"),
     "Bowser's Star Reactor: The Fiery Stronghold":          create_location_data(),
 }
 
@@ -86,9 +85,9 @@ loc_kitchen_data = {
     "Drip Drop Galaxy: Giant Eel Outbreak":                 create_location_data(),
     "Buoy Base Galaxy: The Floating Fortress":              create_location_data(),
     "Buoy Base Galaxy: Secret Buoy Base":                   create_location_data(),
-    "Buoy Base Galaxy: Green Star":                         create_location_data(ItemNames.GREEN_STAR),
+    "Buoy Base Galaxy: Green Star":                         create_location_data("Green_Star"),
     "Bubble Breeze Galaxy: Through the Poison Swamp":       create_location_data(),
-    "Bowser Jr's Airship Armada: Access":                   create_location_data(ItemNames.BJrAA_ACCESS),
+    "Bowser Jr's Airship Armada: Access":                   create_location_data("Bowser Jr's Airship Armada: Access"),
     "Bowser Jr's Airship Armada: Sinking the Airships":     create_location_data(),
 }
 
@@ -112,10 +111,10 @@ loc_bedroom_data = {
     "Dusty Dune Galaxy: Purple Coins in the Desert":            create_location_data(),
     "Dusty Dune Galaxy: Bullet Bill on Your Back":              create_location_data(),
     "Dusty Dune Galaxy: Treasure of the Pyramid":               create_location_data(),
-    "Dusty Dune Galaxy: Green Star":                            create_location_data(ItemNames.GREEN_STAR),
+    "Dusty Dune Galaxy: Green Star":                            create_location_data("Green_Star"),
     "Honeyclimb Galaxy: Scaling the Sticky Wall":               create_location_data(),
     "Bigmouth Galaxy: Bigmouth's Gold Bait":                    create_location_data(),
-    "Bowser's Dark Matter Plant: Access":                       create_location_data(ItemNames.BDMP_ACCESS),
+    "Bowser's Dark Matter Plant: Access":                       create_location_data("Bowser's Dark Matter Plant: Access"),
     "Bowser's Dark Matter Plant: Darkness on the Horizon":      create_location_data(),
 }
 
@@ -140,7 +139,7 @@ loc_engineroom_data = {
     "Toy Time Galaxy: The Flipswitch Chain":                    create_location_data(),
     "Bonefin Galaxy: Kingfin's Fearsome Waters":                create_location_data(),
     "Sand Spiral Galaxy: Chosing a Favorite Snack":             create_location_data(),
-    "Bowser Jr's Lava Reactor: Access":                         create_location_data(ItemNames.BJrLR_ACCESS),
+    "Bowser Jr's Lava Reactor: Access":                         create_location_data("Bowser Jr's Lava Reactor: Access"),
     "Bowser Jr's Lava Reactor: King Kaliente's Spicy Return":   create_location_data(),
 }
 
@@ -186,9 +185,9 @@ loc_gateway_data = {
 }
 
 loc_misc_data = {
-    "Luigi Rescue Access": create_location_data(ItemNames.RESCUE_ACCESS),
-    "Comet Mission Access": create_location_data(ItemNames.COMET_ACCESS),
-    "Purple Comet Access":  create_location_data(ItemNames.PURPLE_ACCESS),
+    "Luigi Rescue Access": create_location_data("Luigi Rescue Access"),
+    "Comet Mission Access": create_location_data("Comet Mission Access"),
+    "Purple Comet Access":  create_location_data("Purple Comet Access"),
 }
 
 
@@ -217,17 +216,17 @@ def create_all_locations(world: SMGWorld) -> None:
     create_event_locations(world)
 
 def create_regular_locations(world: SMGWorld) -> None:
-    observatory =   world.get_region(RegionNames.OBSERVATORY)
-    terrace =       world.get_region(RegionNames.TERRACE)
-    fountain =      world.get_region(RegionNames.FOUNTAIN)
-    kitchen =       world.get_region(RegionNames.KITCHEN)
-    bedroom =       world.get_region(RegionNames.BEDROOM)
-    engine_room =   world.get_region(RegionNames.ENGINE_ROOM)
-    garden =        world.get_region(RegionNames.GARDEN)
+    observatory =   world.get_region("Comet Obervatory")
+    terrace =       world.get_region("Terrace")
+    fountain =      world.get_region("Fountain")
+    kitchen =       world.get_region("Kitchen")
+    bedroom =       world.get_region("Bedroom")
+    engine_room =   world.get_region("Engine Room")
+    garden =        world.get_region("Garden")
 
-    trials =        world.get_region(RegionNames.TRIALS)
+    trials =        world.get_region("Trial Galaxies")
 
-    unassigned =    world.get_region(RegionNames.UNASSIGNED)
+    unassigned =    world.get_region("Unassigned")
 
     observatory.add_locations(get_locations_by_names([
         "Gateway Galaxy: Grand Star Rescue",
@@ -447,7 +446,7 @@ def create_regular_locations(world: SMGWorld) -> None:
 
 
 def create_event_locations(world: SMGWorld) -> None:
-    unassigned = world.get_region(RegionNames.UNASSIGNED)
+    unassigned = world.get_region("Unassigned")
 
     unassigned.add_event(
         "Final Bowser Defeated",

@@ -6,7 +6,7 @@ from typing import Any
 from .options import smg_option_groups, smg_option_presets, SMGOptions
 from .items import item_table, SMGItem, create_all_items, create_single_item, get_filler_item_name
 from .locations import location_table, create_all_locations
-from .regions import RegionNames, create_regions
+from .regions import create_regions
 from .rules import set_all_rules
 from .generator import generate_basic
 
@@ -50,7 +50,7 @@ class SMGWorld(World):
     item_name_to_id = item_table
     location_name_to_id = location_table
 
-    origin_region_name = RegionNames.OBSERVATORY
+    origin_region_name = "Comet Obervatory"
 
     required_client_version = (0, 6, 7)
 
