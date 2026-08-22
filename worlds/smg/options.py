@@ -34,7 +34,7 @@ class CompletionType(Choice):
     display_name = "Completion Goal"
     option_Bowsers_Galaxy_Reactor = 0
     option_120_Stars = 1
-    option_242_Stars = 2
+    # option_242_Stars = 2
 
     default = option_Bowsers_Galaxy_Reactor
 

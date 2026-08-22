@@ -1,6 +1,7 @@
 import asyncio
-from CommonClient import get_base_parser, handle_url_arg
+import colorama
 
+from CommonClient import get_base_parser, handle_url_arg
 
 def launch_smg_client(*args: str) -> None:
     from .smg_client import main
@@ -11,4 +12,7 @@ def launch_smg_client(*args: str) -> None:
 
     launch_args = handle_url_arg(parser.parse_args(args))
 
-    asyncio.run(main(len(launch_args), launch_args))
+    colorama.just_fix_windows_console()
+
+    asyncio.run(main(launch_args))
+    colorama.deinit()

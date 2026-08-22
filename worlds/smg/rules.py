@@ -11,12 +11,12 @@ location_rules = [
     ("Good Egg Galaxy: Dino Piranha",                           Has("Power_Star", 1)),
     ("Good Egg Galaxy: A Snack of Cosmic Proportions",          Has("Power_Star", 1)),
     ("Good Egg Galaxy: King Kaliente's Battle Fleet",           Has("Power_Star", 1)),
-    ("Good Egg Galaxy: Luigi on the Roof",                      Has("Power_Star", 1)),
+    ("Good Egg Galaxy: Luigi on the Roof",                      Has("Power_Star", 1) & Has("Luigi Rescue Access")),
 
     ("Honeyhive Galaxy: Bee Mario Takes Flight",                Has("Power_Star", 3)),
     ("Honeyhive Galaxy: Trouble on the Tower",                  Has("Power_Star", 3)),
     ("Honeyhive Galaxy: Big Bad Bugaboom",                      Has("Power_Star", 3)),
-    ("Honeyhive Galaxy: Luigi in the Honeyhive Kingdom",        Has("Power_Star", 3)),
+    ("Honeyhive Galaxy: Luigi in the Honeyhive Kingdom",        Has("Power_Star", 3) & Has("Luigi Rescue Access")),
 
     ("Loopdeeloop Galaxy: Surfing 101",                         Has("Power_Star", 5)),
     ("Flipswitch Galaxy: Painting the Planet Yellow",           Has("Power_Star", 7)),
@@ -126,8 +126,8 @@ location_rules = [
     ("Buoy Base Galaxy: Green Star",                            Has("Power_Star", 30)),
     ("Dusty Dune Galaxy: Treasure of the Pyramid",              Has("Power_Star", 29)),
     ("Dusty Dune Galaxy: Green Star",                           Has("Power_Star", 29)),
-    ("Battlerock Galaxy: Luigi under the Saucer",               Has("Power_Star", 20) & Has("Bowser Jr's Airship Armada: Access")),
-    ("Battlerock Galaxy: Green Star",                           Has("Power_Star", 20) & Has("Bowser Jr's Airship Armada: Access")),
+    ("Battlerock Galaxy: Luigi under the Saucer",               Has("Power_Star", 20) & Has("Luigi Rescue Access")),
+    ("Battlerock Galaxy: Green Star",                           Has("Power_Star", 20) & Has("Luigi Rescue Access")),
 
     # -- Hungry Lumas -- Might change????
     ("Sweet Sweet Galaxy: Rocky Road",                          Has("Power_Star",  3)), # Honeyhive Galaxy
@@ -178,9 +178,9 @@ location_rules = [
 
 
     ("Bowser's Galaxy Generator: The Fate of the Universe",     Has("Power_Star", 60)),
-    ("Grand Finale Galaxy: The Star Festival",                  Has("Bowser's Dark Matter Plant: Access") & Has("Power_Star", 120)),
+    # ("Grand Finale Galaxy: The Star Festival",                  Has("Bowser's Dark Matter Plant: Access") & Has("Power_Star", 120)),
 
-    ("Luigi Rescue Access",                                     Has("Power_Star", 20)),
+    ("Luigi Rescue Access",                                     Has("Power_Star", 20) & Has("Bowser's Star Reactor: Access")),
     ("Comet Mission Access",                                    Has("Power_Star", 13)),
     ("Purple Comet Access",                                     Has("Comet Mission Access") & Has("Bowser's Dark Matter Plant: Access") & Has("Power_Star", 60)),
 
@@ -209,14 +209,14 @@ def set_all_rules(world: SMGWorld) -> None:
     # Event Rules
     world.set_rule(world.get_location("Final Bowser Defeated"   ), Has("Power_Star", 60))
     world.set_rule(world.get_location("120 Star Bowser Defeated"), Has("Power_Star", 120))
-    world.set_rule(world.get_location("242 Star Bowser Defeated"), Has("Power_Star", 242))
+    # world.set_rule(world.get_location("242 Star Bowser Defeated"), Has("Power_Star", 242))
 
     # Completion Condition
 
     if world.options.completion_type == 1:
         world.set_completion_rule(Has("120 Star Victory"))
-    elif world.options.completion_type == 2:
-        world.set_completion_rule(Has("242 Star Victory"))
+    # elif world.options.completion_type == 2:
+    #     world.set_completion_rule(Has("242 Star Victory"))
     else:
         world.set_completion_rule(Has("Any Percent Victory"))
 

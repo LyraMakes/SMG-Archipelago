@@ -462,9 +462,9 @@ def create_event_locations(world: SMGWorld) -> None:
         item_type=SMGItem
     )
 
-    unassigned.add_event(
-        "242 Star Bowser Defeated",
-        "242 Star Victory",
-        location_type=SMGLocation,
-        item_type=SMGItem
-    )
+    # unassigned.add_event(
+    #     "242 Star Bowser Defeated",
+    #     "242 Star Victory",
+    #     location_type=SMGLocation,
+    #     item_type=SMGItem
+    # )

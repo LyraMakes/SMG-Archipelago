@@ -9,7 +9,7 @@ from .locations import location_table, create_all_locations
 from .regions import create_regions
 from .rules import set_all_rules
 from .generator import generate_basic
-
+from . import components
 
 from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld, World
@@ -55,22 +55,28 @@ class SMGWorld(World):
     required_client_version = (0, 6, 7)
 
     def create_regions(self) -> None:
+        logger.info("[SMG] Running create_regions()")
         create_regions(self)
         create_all_locations(self)
 
     def set_rules(self) -> None:
+        logger.info("[SMG] Running set_rules()")
         set_all_rules(self)
 
     def create_items(self) -> None:
+        logger.info("[SMG] Running create_items()")
         create_all_items(self) 
 
     def create_item(self, name: str) -> SMGItem:
+        logger.info("[SMG] Running create_item()")
         return create_single_item(self, name)
 
     def get_filler_item_name(self) -> str:
+        logger.info("[SMG] Running get_filler_item_name()")
         return get_filler_item_name()
 
     def fill_slot_data(self) -> Mapping[str, Any]:
+        logger.info("[SMG] Running fill_slot_data()")
         return self.options.as_dict(
             "star_amount",
             "initial_gateway_rando",
@@ -82,4 +88,5 @@ class SMGWorld(World):
         )
     
     def generate_basic(self) -> None:
+        logger.info("[SMG] Running generate_basic()")
         return generate_basic(self)
