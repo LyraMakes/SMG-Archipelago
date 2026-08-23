@@ -80,7 +80,7 @@ class SMGWorld(World):
         return self.options.as_dict(
             "star_amount",
             "initial_gateway_rando",
-            "luigi_rando",
+            "luigi_rescue_rando",
             "comet_rando",
             "purple_comet_rando",
             "death_link",
