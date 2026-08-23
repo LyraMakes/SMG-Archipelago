@@ -67,7 +67,7 @@ def create_all_items(world: SMGWorld) -> None:
     if world.options.initial_gateway_rando:
         itempool.append(world.create_item("Power_Star"))
 
-    if world.options.luigi_rando:
+    if world.options.luigi_rescue_rando:
         itempool.append(world.create_item("Luigi Rescue Access"))
 
     if world.options.comet_rando:

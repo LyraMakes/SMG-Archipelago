@@ -5,7 +5,7 @@ if TYPE_CHECKING:
     from . import SMGWorld
 
 def generate_basic(world: SMGWorld) -> None:
-    if not world.options.luigi_rando:
+    if not world.options.luigi_rescue_rando:
         world.multiworld.get_location("Luigi Rescue Access", world.player).place_locked_item(world.create_item("Luigi Rescue Access"))
         
     if not world.options.comet_rando:
