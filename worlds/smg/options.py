@@ -11,6 +11,10 @@ class EnableLuigiCampaign(Toggle):
     """Include all 120 Stars in Luigi's campaign, as well as the Grand Finale Galaxy"""
     display_name = "Randomize Luigi's Campaign"
 
+class EnableLuigiRescue(Toggle):
+    """Include access to Luigi's Rescue missions in logic."""
+    display_name = "Randomize Luigi Rescue Missions"
+
 class EnableCometAccess(Toggle):
     """Include access to Comet Missions in logic.
     Will also randomize access to Purple Comets if Purple Comets are enabled"""
@@ -42,6 +46,7 @@ smg_option_groups = [
     OptionGroup("Logic Options", [
         AmountOfStars,
         EnableLuigiCampaign,
+        EnableLuigiRescue,
         EnableCometAccess,
         EnablePurpleComets,
     ])
@@ -51,7 +56,8 @@ smg_option_groups = [
 smg_option_presets = {
     "Standard": {
         "initial_gateway_rando": False,
-        "luigi_rando": False,
+        "luigi_game_rando": False,
+        "luigi_rescue_rando": False,
         "comet_rando": False,
         "purple_comet_rando": False,
         "completion_type": 0
@@ -70,7 +76,8 @@ smg_option_presets = {
 class SMGOptions(PerGameCommonOptions):
     star_amount: AmountOfStars
     initial_gateway_rando: EnableGatewayStar
-    luigi_rando: EnableLuigiCampaign
+    luigi_game_rando: EnableLuigiCampaign
+    luigi_rescue_rando: EnableLuigiRescue
     comet_rando: EnableCometAccess
     purple_comet_rando: EnablePurpleComets
     death_link: DeathLink
