@@ -96,13 +96,13 @@ location_rules = [
     ("Bowser Jr's Lava Reactor: King Kaliente's Spicy Return",  Has("Bowser Jr's Lava Reactor: Access")),
 
     # Garden
-    ("Deep Dark Galaxy: The Undergroud Ghost Ship",             Has("Power_Star", 46)),
+    ("Deep Dark Galaxy: The Underground Ghost Ship",             Has("Power_Star", 46)),
     ("Deep Dark Galaxy: Bubble Blastoff",                       Has("Power_Star", 46)),
     ("Deep Dark Galaxy: Guppy and the Underground Lake",        Has("Power_Star", 46)),
     ("Deep Dark Galaxy: Boo in a Box",                          Has("Power_Star", 46)),
 
     ("Dreadnought Galaxy: Infiltrating the Dreadnought",        Has("Power_Star", 48)),
-    ("Dreadnought Galaxy: Dreadnought's Colossan Cannons",      Has("Power_Star", 48)),
+    ("Dreadnought Galaxy: Dreadnought's Colossal Cannons",      Has("Power_Star", 48)),
     ("Dreadnought Galaxy: Revenge of the Topman Tribe",         Has("Power_Star", 48)),
     ("Dreadnought Galaxy: Dreadnought's Garbage Dump",          Has("Power_Star", 48)),
 
@@ -122,7 +122,7 @@ location_rules = [
     ("Gateway Galaxy: Gateway's Purple Coins",                  Has("Bowser Jr's Lava Reactor: Access")),
 
     # Green Stars
-    ("Buoy Base Galaxy: Secret Buoy Base",                      Has("Power_Star", 30)),
+    ("Buoy Base Galaxy: The Secret of Buoy Base",                      Has("Power_Star", 30)),
     ("Buoy Base Galaxy: Green Star",                            Has("Power_Star", 30)),
     ("Dusty Dune Galaxy: Treasure of the Pyramid",              Has("Power_Star", 29)),
     ("Dusty Dune Galaxy: Green Star",                           Has("Power_Star", 29)),

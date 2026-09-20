@@ -84,7 +84,7 @@ loc_kitchen_data = {
     "Ghostly Galaxy: Matter Splatter Mansion":              create_location_data(),
     "Drip Drop Galaxy: Giant Eel Outbreak":                 create_location_data(),
     "Buoy Base Galaxy: The Floating Fortress":              create_location_data(),
-    "Buoy Base Galaxy: Secret Buoy Base":                   create_location_data(),
+    "Buoy Base Galaxy: The Secret of Buoy Base":            create_location_data(),
     "Buoy Base Galaxy: Green Star":                         create_location_data("Green_Star"),
     "Bubble Breeze Galaxy: Through the Poison Swamp":       create_location_data(),
     "Bowser Jr's Airship Armada: Access":                   create_location_data("Bowser Jr's Airship Armada: Access"),
@@ -144,14 +144,14 @@ loc_engineroom_data = {
 }
 
 loc_garden_data = {
-    "Deep Dark Galaxy: The Undergroud Ghost Ship":          create_location_data(),
+    "Deep Dark Galaxy: The Underground Ghost Ship":          create_location_data(),
     "Deep Dark Galaxy: Bubble Blastoff":                    create_location_data(),
     "Deep Dark Galaxy: Guppy and the Underground Lake":     create_location_data(),
     "Deep Dark Galaxy: Ghost Ship Daredevil Run":           create_location_data(),
     "Deep Dark Galaxy: Plunder the Purple Coins":           create_location_data(),
     "Deep Dark Galaxy: Boo in a Box":                       create_location_data(),
     "Dreadnought Galaxy: Infiltrating the Dreadnought":     create_location_data(),
-    "Dreadnought Galaxy: Dreadnought's Colossan Cannons":   create_location_data(),
+    "Dreadnought Galaxy: Dreadnought's Colossal Cannons":   create_location_data(),
     "Dreadnought Galaxy: Revenge of the Topman Tribe":      create_location_data(),
     "Dreadnought Galaxy: Topman Tribe Speed Run":           create_location_data(),
     "Dreadnought Galaxy: Battlestation's Purple Coins":     create_location_data(),
@@ -309,12 +309,12 @@ def create_regular_locations(world: SMGWorld) -> None:
     ]), SMGLocation)
 
     garden.add_locations(get_locations_by_names([
-        "Deep Dark Galaxy: The Undergroud Ghost Ship",
+        "Deep Dark Galaxy: The Underground Ghost Ship",
         "Deep Dark Galaxy: Bubble Blastoff",
         "Deep Dark Galaxy: Guppy and the Underground Lake",
         "Deep Dark Galaxy: Boo in a Box",
         "Dreadnought Galaxy: Infiltrating the Dreadnought",
-        "Dreadnought Galaxy: Dreadnought's Colossan Cannons",
+        "Dreadnought Galaxy: Dreadnought's Colossal Cannons",
         "Dreadnought Galaxy: Revenge of the Topman Tribe",
         "Dreadnought Galaxy: Dreadnought's Garbage Dump",
         "Melty Molten Galaxy: The Sinking Lava Spire",
@@ -334,7 +334,7 @@ def create_regular_locations(world: SMGWorld) -> None:
         "Battlerock Galaxy: Green Star"
     ]), SMGLocation)
     kitchen.add_locations(get_locations_by_names([
-        "Buoy Base Galaxy: Secret Buoy Base",
+        "Buoy Base Galaxy: The Secret of Buoy Base",
         "Buoy Base Galaxy: Green Star"
     ]), SMGLocation)
     bedroom.add_locations(get_locations_by_names([

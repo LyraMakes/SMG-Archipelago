@@ -22,18 +22,19 @@ class ConnectionStatus(Enum):
     GAME_RUNNING = 3
 
 class SMGCommandProcessor(ClientCommandProcessor):
-    async def _cmd_check(self, loc: str):
+    async def _cmd_check(self, *locations: str):
         """Check a location"""
         if isinstance(self.ctx, SMGContext):
-            if loc not in location_data_table.keys():
-                logger.info("Not a recognized location")
-                return
-            loc_id = location_data_table[loc].code
-            if loc_id is None:
-                logger.info("Invalid location")
-                return
-            logger.debug(f"{self.ctx.slot} just checked {loc}")
-            await self.ctx.send_location(loc_id)
+            for loc in locations:
+                if loc not in location_data_table.keys():
+                    logger.info("Not a recognized location")
+                    return
+                loc_id = location_data_table[loc].code
+                if loc_id is None:
+                    logger.info("Invalid location")
+                    return
+                logger.debug(f"{self.ctx.slot} just checked {loc}")
+                await self.ctx.send_location(loc_id)
 
 
 class SMGContext(CommonContext):
